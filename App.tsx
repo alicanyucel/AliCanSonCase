@@ -21,10 +21,9 @@ export default function App() {
   ];
 
   const widthArr = [
-    70, 120, 100, 130, 100, 80, 90, 80, 100, 100, 120, 150
-  ]; 
+    100, 120, 100, 130, 100, 80, 90, 80, 100, 100, 120, 150
+  ];
 
- 
   const renderIconWithText = (iconName: string, text: string, color = '#000') => {
     return (
       <View style={styles.iconTextContainer}>
@@ -35,17 +34,17 @@ export default function App() {
   };
 
   const tableData1 = data.tableone.map(item => [
-    item.ProjeSorumlusu,
-    item.projeadi,
-    item.DgtParcaKodu,
-    item.SorumluKisi,
-    item.SeriNo,
-    item.UretimAdeti,
-    item.SureGun,
-    item.Tarih,
-    renderIconWithText('cloud-upload', item.DosyaYukle, '#007bff'), 
-    item.Aciklama,
-    renderIconWithText('floppy-o', item.kAYDET, '#28a745'),  
+    renderIconWithText('user', item.ProjeSorumlusu),
+    renderIconWithText('folder', item.projeadi),
+    renderIconWithText('barcode', String(item.DgtParcaKodu)),
+    renderIconWithText('user-circle', item.SorumluKisi),
+    renderIconWithText('hashtag', item.SeriNo),
+    renderIconWithText('cogs', `${item.UretimAdeti} Adet`), 
+    renderIconWithText('clock', `${item.SureGun} Gün`),
+    renderIconWithText('calendar', item.Tarih),
+    renderIconWithText('cloud-upload', item.DosyaYukle, '#007bff'),
+    renderIconWithText('file-text', item.Aciklama),
+    renderIconWithText('floppy-o', item.kAYDET, '#28a745'),
     renderIconWithText('clock-o', item.DosyaAcilmaSaatTarih, '#6c757d')
   ]);
 
