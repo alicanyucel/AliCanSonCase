@@ -14,7 +14,10 @@
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.8",
-    "react-native-table-component": "^1.2.2"
+    "react-native-table-component": "^1.2.2",
+    "react-native-vector-icons": "^10.2.0",
+    "typescript": "^4.9.4",
+    "@types/react": "~18.0.27"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

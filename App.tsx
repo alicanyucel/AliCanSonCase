@@ -1,7 +1,8 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { Table, Row, Rows } from 'react-native-table-component';
+import { Table, Row, TableWrapper, Cell } from 'react-native-table-component';
 import data from './assets/db.json';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function App() {
   const tableHead1 = [
@@ -20,8 +21,14 @@ export default function App() {
   ];
 
   const widthArr = [
-    70, 120, 100, 130, 100, 80, 90, 80, 100, 100, 120, 70, 150
+    70, 120, 100, 130, 100, 80, 90, 80, 100, 100, 120, 150
   ]; 
+
+ 
+  const renderIconCell = (iconName: string, color = '#000') => {
+    return <Icon name={iconName} size={16} color={color} />;
+  };
+
   const tableData1 = data.tableone.map(item => [
     item.ProjeSorumlusu,
     item.projeadi,
@@ -31,10 +38,10 @@ export default function App() {
     item.UretimAdeti,
     item.SureGun,
     item.Tarih,
-    item.DosyaYukle,
+    renderIconCell('cloud-upload', '#007bff'),  
     item.Aciklama,
-    item.kAYDET,
-    item.DosyaAcilmaSaatTarih
+    renderIconCell('floppy-o', '#28a745'),  
+    renderIconCell('clock-o', '#6c757d')     
   ]);
 
   return (
@@ -49,11 +56,18 @@ export default function App() {
               textStyle={styles.text}
               widthArr={widthArr}
             />
-            <Rows
-              data={tableData1}
-              textStyle={styles.text}
-              widthArr={widthArr}
-            />
+            {tableData1.map((rowData, index) => (
+              <TableWrapper key={index} style={{ flexDirection: 'row' }}>
+                {rowData.map((cellData, cellIndex) => (
+                  <Cell
+                    key={cellIndex}
+                    data={cellData}
+                    textStyle={styles.text}
+                    style={{ width: widthArr[cellIndex] }}
+                  />
+                ))}
+              </TableWrapper>
+            ))}
           </Table>
         </ScrollView>
       </View>
