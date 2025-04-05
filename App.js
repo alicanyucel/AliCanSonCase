@@ -1,67 +1,53 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import { ScrollView, StyleSheet, View, Text } from 'react-native';
+import { Table, Row, Rows } from 'react-native-table-component';
 
-const App = () => {
-  const NUM_ROWS = 8;
-  const NUM_COLS = 12;
-  const generateTableData = () => {
-    let data = [];
-    let counter = 1;
-    for (let i = 0; i < NUM_ROWS; i++) {
-      let row = [];
-      for (let j = 0; j < NUM_COLS; j++) {
-        row.push(`Veri ${counter}`);
-        counter++;
-      }
-      data.push(row);
-    }
-    return data;
-  };
+export default function App() {
+  const tableHead1 = Array.from({ length: 12 }, (_, i) => `S${i + 1}`);
+  const tableData1 = Array.from({ length: 4 }, (_, rowIndex) =>
+    Array.from({ length: 12 }, (_, colIndex) => `R${rowIndex + 1}C${colIndex + 1}`)
+  );
 
-  const tableData = generateTableData();
+  const tableHead2 = Array.from({ length: 8 }, (_, i) => `S${i + 1}`);
+  const tableData2 = Array.from({ length: 2 }, (_, rowIndex) =>
+    Array.from({ length: 8 }, (_, colIndex) => `R${rowIndex + 1}C${colIndex + 1}`)
+  );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView horizontal>
-        <View>
-          {tableData.map((row, rowIndex) => (
-            <View key={rowIndex} style={styles.row}>
-              {row.map((cell, colIndex) => (
-                <View key={colIndex} style={styles.cell}>
-                  <Text style={styles.cellText}>{cell}</Text>
-                </View>
-              ))}
-            </View>
-          ))}
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <ScrollView style={styles.container}>
+
+      <Text style={styles.title}>Tablo 1 </Text>
+      <Table borderStyle={styles.border}>
+        <Row data={tableHead1} style={styles.head} textStyle={styles.text} />
+        <Rows data={tableData1} textStyle={styles.text} />
+      </Table>
+
+      <Text style={styles.title}>TABLO 2</Text>
+      <Table borderStyle={styles.border}>
+        <Row data={tableHead2} style={styles.head} textStyle={styles.text} />
+        <Rows data={tableData2} textStyle={styles.text} />
+      </Table>
+
+      <Text style={styles.title}>Tablo 3 </Text>
+      <Table borderStyle={styles.border}>
+        <Row data={tableHead2} style={styles.head} textStyle={styles.text} />
+        <Rows data={tableData2} textStyle={styles.text} />
+      </Table>
+
+    </ScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 50,
-    paddingHorizontal: 10,
-    backgroundColor: '#f4f4f4',
-  },
-  row: {
-    flexDirection: 'row',
-  },
-  cell: {
-    width: 80,
-    height: 50,
-    borderWidth: 1,
-    borderColor: '#bbb',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  cellText: {
-    fontSize: 13,
+  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+  head: { height: 40, backgroundColor: '#f1f8ff' },
+  text: { margin: 4, textAlign: 'center', fontSize: 12 },
+  border: { borderWidth: 1, borderColor: '#c8e1ff' },
+  title: {
+    fontSize: 18,
+    marginTop: 20,
+    marginBottom: 10,
+    fontWeight: 'bold',
     color: '#333',
   },
 });
-
-export default App;
