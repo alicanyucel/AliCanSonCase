@@ -51,7 +51,6 @@ export default function App() {
   return (
     <ScrollView style={styles.container} horizontal={true}>
       <View>
-        <Text style={styles.title}>Tablo 1 - Projeler</Text>
         <ScrollView>
           <Table borderStyle={styles.border}>
             <Row
