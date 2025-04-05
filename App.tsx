@@ -17,7 +17,7 @@ export default function App() {
     'Dosya Yükle',
     'Açıklama',
     'Kaydet',
-    'Dosya Açılma Saat/Tarih'
+    'Dosya Açılma Tarih/Saat'
   ];
 
   const widthArr = [
