@@ -25,8 +25,13 @@ export default function App() {
   ]; 
 
  
-  const renderIconCell = (iconName: string, color = '#000') => {
-    return <Icon name={iconName} size={16} color={color} />;
+  const renderIconWithText = (iconName: string, text: string, color = '#000') => {
+    return (
+      <View style={styles.iconTextContainer}>
+        <Icon name={iconName} size={16} color={color} style={styles.icon} />
+        <Text style={styles.iconText}>{text}</Text>
+      </View>
+    );
   };
 
   const tableData1 = data.tableone.map(item => [
@@ -38,10 +43,10 @@ export default function App() {
     item.UretimAdeti,
     item.SureGun,
     item.Tarih,
-    renderIconCell('cloud-upload', '#007bff'),  
+    renderIconWithText('cloud-upload', item.DosyaYukle, '#007bff'), 
     item.Aciklama,
-    renderIconCell('floppy-o', '#28a745'),  
-    renderIconCell('clock-o', '#6c757d')     
+    renderIconWithText('floppy-o', item.kAYDET, '#28a745'),  
+    renderIconWithText('clock-o', item.DosyaAcilmaSaatTarih, '#6c757d')
   ]);
 
   return (
@@ -99,5 +104,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight: 'bold',
     color: '#333'
+  },
+  iconTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    marginRight: 5,
+  },
+  iconText: {
+    fontSize: 10,
+    color: '#333',
   }
 });
