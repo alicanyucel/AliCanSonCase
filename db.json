@@ -1,5 +1,141 @@
 {
-    "tableone": [
-      { "id": 1, "ProjeSorumlusu": "Ali Can Yücel", "projeadi":"React" ,"DgtParcaKodu": 23  ,"SorumluKisi":"Ahmet Cengiz","SeriNo":"ss2313","UretimAdeti":25,"SureGun":15,"Tarih":"06.94.2025","DosyaYukle":"c/ser/resim.jp", "Aciklama":"BAŞAARILAR","kAYDET":"KAYDEDİLDİ","DosyaAcilmaSaatTarih":"22.06.2025 08:30"},
-      { "id": 2, "ProjeSorumlusu": "ESER Can Yücel", "projeadi":"Flutte" ,"DgtParcaKodu": 233  ,"SorumluKisi":"Hakan Cengiz","SeriNo":"ss2313","UretimAdeti":25,"SureGun":15,"Tarih":"06.94.2025","DosyaYukle":"c/ser/resim.jp", "Aciklama":"BAŞAARILAR","kAYDET":"KAYDEDİLDİ","DosyaAcilmaSaatTarih":"22.06.2025 08:30"}    ]
-  }
+  "tableone": [
+    {
+      "id": 1,
+      "ProjeSorumlusu": "Ali Can Yücel",
+      "projeadi": "React",
+      "DgtParcaKodu": 23,
+      "SorumluKisi": "Ahmet Cengiz",
+      "SeriNo": "ss2313",
+      "UretimAdeti": 25,
+      "SureGun": 15,
+      "Tarih": "06.04.2025",
+      "DosyaYukle": "c/ser/resim.jpg",
+      "Aciklama": "BAŞARILAR",
+      "kAYDET": "KAYDEDİLDİ",
+      "DosyaAcilmaSaatTarih": "22.06.2025 08:30"
+    },
+    {
+      "id": 2,
+      "ProjeSorumlusu": "ESER Can Yücel",
+      "projeadi": "Flutter",
+      "DgtParcaKodu": 233,
+      "SorumluKisi": "Hakan Cengiz",
+      "SeriNo": "ss2313",
+      "UretimAdeti": 25,
+      "SureGun": 15,
+      "Tarih": "06.04.2025",
+      "DosyaYukle": "c/ser/resim.jpg",
+      "Aciklama": "BAŞARILAR",
+      "kAYDET": "KAYDEDİLDİ",
+      "DosyaAcilmaSaatTarih": "22.06.2025 08:30"
+    }
+  ],
+  "tabletwo": [
+    {
+      "aciklamaListesi": ["Montaj başladı", "Test planlanıyor"],
+      "teknisyenAdi": "Ali Can",
+      "dgtParcaKodu": "DGT-1001",
+      "durum": "aktif",
+      "onaylayanProjeYoneticisi": "Merve Arslan",
+      "beklemedeAdet": 0,
+      "aciklama": "Montaj süreci devam ediyor.",
+      "tarih": "2025-04-06"
+    },
+    {
+      "aciklamaListesi": ["Kablo tesisatı tamamlandı", "Denetim bekleniyor"],
+      "teknisyenAdi": "Hasan Tunç",
+      "dgtParcaKodu": "DGT-1002",
+      "durum": "aktif",
+      "onaylayanProjeYoneticisi": "Onur Kılıç",
+      "beklemedeAdet": 0,
+      "aciklama": "Elektrik bağlantıları hazır.",
+      "tarih": "2025-04-05"
+    },
+    {
+      "aciklamaListesi": ["Yazılım yüklendi", "Test başarılı"],
+      "teknisyenAdi": "Elif Yıldız",
+      "dgtParcaKodu": "DGT-1003",
+      "durum": "aktif",
+      "onaylayanProjeYoneticisi": "Seda Koç",
+      "beklemedeAdet": 0,
+      "aciklama": "Sistem devreye alındı.",
+      "tarih": "2025-04-04"
+    },
+    {
+      "aciklamaListesi": ["Proje donduruldu", "Rapor hazırlandı"],
+      "teknisyenAdi": "Kemal Aydın",
+      "dgtParcaKodu": "DGT-2001",
+      "durum": "kapalı",
+      "onaylayanProjeYoneticisi": "Ayça Sarı",
+      "beklemedeAdet": 0,
+      "aciklama": "Kaynak eksikliği nedeniyle durduruldu.",
+      "tarih": "2025-03-28"
+    },
+    {
+      "aciklamaListesi": ["İptal kararı alındı", "Malzeme iadesi yapıldı"],
+      "teknisyenAdi": "Zeynep Aksoy",
+      "dgtParcaKodu": "DGT-2002",
+      "durum": "kapalı",
+      "onaylayanProjeYoneticisi": "Serhat Demir",
+      "beklemedeAdet": 0,
+      "aciklama": "Müşteri talebiyle iptal edildi.",
+      "tarih": "2025-03-27"
+    },
+    {
+      "aciklamaListesi": ["Proje tamamlandı", "Arşivleme yapıldı"],
+      "teknisyenAdi": "Murat Yılmaz",
+      "dgtParcaKodu": "DGT-2003",
+      "durum": "kapalı",
+      "onaylayanProjeYoneticisi": "Nazan Güler",
+      "beklemedeAdet": 0,
+      "aciklama": "Tüm işler başarıyla tamamlandı.",
+      "tarih": "2025-03-25"
+    },
+    {
+      "aciklamaListesi": ["Parça bekleniyor", "Sipariş oluşturuldu"],
+      "teknisyenAdi": "Fatma Şahin",
+      "dgtParcaKodu": "DGT-3001",
+      "durum": "beklemede",
+      "onaylayanProjeYoneticisi": "Tolga Keskin",
+      "beklemedeAdet": 2,
+      "aciklama": "Tedarik süreci bekleniyor.",
+      "tarih": "2025-04-06"
+    },
+    {
+      "aciklamaListesi": ["Stokta parça yok", "Alternatif arandı"],
+      "teknisyenAdi": "Ahmet Kaya",
+      "dgtParcaKodu": "DGT-3002",
+      "durum": "beklemede",
+      "onaylayanProjeYoneticisi": "Emine Çetin",
+      "beklemedeAdet": 1,
+      "aciklama": "Parça bulunamadı, yeni tedarikçi aranıyor.",
+      "tarih": "2025-04-05"
+    },
+    {
+      "aciklamaListesi": ["Tedarikçiden dönüş bekleniyor", "Eposta gönderildi"],
+      "teknisyenAdi": "Sibel Demirtaş",
+      "dgtParcaKodu": "DGT-3003",
+      "durum": "beklemede",
+      "onaylayanProjeYoneticisi": "Yusuf Güneş",
+      "beklemedeAdet": 4,
+      "aciklama": "Parça temini için geri bildirim bekleniyor.",
+      "tarih": "2025-04-04"
+    }
+  ],
+  "tablethree": [
+    {
+      "uygunsuzluktespitlistesi": [
+        {
+          "aciklamaListesi": ["Montaj başladı", "Test planlanıyor"],
+          "teknisyenAdi": "Ali Can",
+          "dgtParcaKodu": "DGT-1001",
+          "durum": "aktif",
+          "beklemedeAdet": 0,
+          "aciklama": "Montaj süreci devam ediyor.",
+          "tarih": "2025-04-06"
+        }
+      ]
+    }
+  ]
+}
