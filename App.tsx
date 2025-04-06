@@ -20,8 +20,29 @@ export default function App() {
     'Dosya Açılma Tarih/Saat'
   ];
 
+  const tableHead2 = [
+    'Teknisyen Adı',
+    'Dijital Parça Kodu',
+    'Durum',
+    'Beklemede Adet',
+    'Açıklama',
+    'Tarih',
+    'Açıklama Listesi'
+  ];
+
+  const tableHead3 = [
+    'Uygunsuzluk Tespit Listesi',
+    'Teknisyen Adı',
+    'Dijital Parça Kodu',
+    'Durum',
+    'Beklemede Adet',
+    'Açıklama',
+    'Tarih',
+    'Açıklama Listesi'
+  ];
+
   const widthArr = [
-    100, 120, 100, 130, 100, 80, 90, 80, 100, 100, 120, 150
+    100, 120, 100, 130, 100, 80, 90, 80, 100, 100, 120, 400
   ];
 
   const renderIconWithText = (iconName: string, text: string, color = '#000') => {
@@ -33,13 +54,26 @@ export default function App() {
     );
   };
 
+  const getColorForStatus = (status: string) => {
+    switch (status) {
+      case 'aktif':
+        return 'green';
+      case 'beklemede':
+        return 'orange';
+      case 'kapalı':
+        return 'red';
+      default:
+        return '#000';
+    }
+  };
+
   const tableData1 = data.tableone.map(item => [
     renderIconWithText('user', item.ProjeSorumlusu),
     renderIconWithText('folder', item.projeadi),
     renderIconWithText('barcode', String(item.DgtParcaKodu)),
     renderIconWithText('user-circle', item.SorumluKisi),
     renderIconWithText('hashtag', item.SeriNo),
-    renderIconWithText('cogs', `${item.UretimAdeti} Adet`), 
+    renderIconWithText('cogs', `${item.UretimAdeti} Adet`),
     renderIconWithText('clock', `${item.SureGun} Gün`),
     renderIconWithText('calendar', item.Tarih),
     renderIconWithText('cloud-upload', item.DosyaYukle, '#007bff'),
@@ -48,10 +82,33 @@ export default function App() {
     renderIconWithText('clock-o', item.DosyaAcilmaSaatTarih, '#6c757d')
   ]);
 
+  const tableData2 = data.tabletwo.map(item => [
+    renderIconWithText('user', item.teknisyenAdi),
+    renderIconWithText('barcode', item.dgtParcaKodu),
+    renderIconWithText('circle', item.durum, getColorForStatus(item.durum)),
+    renderIconWithText('pause', `${item.beklemedeAdet} Adet`, '#f39c12'),
+    renderIconWithText('file-text', item.aciklama),
+    renderIconWithText('calendar', item.tarih),
+    renderIconWithText('list', item.aciklamaListesi.join(', ')),
+  ]);
+
+  const tableData3 = data.tablethree.flatMap(item =>
+    item.uygunsuzluktespitlistesi.map(tespit => [
+      renderIconWithText('file-text', 'Uygunsuzluk Tespit Listesi', '#17a2b8'),
+      renderIconWithText('user', tespit.teknisyenAdi),
+      renderIconWithText('barcode', tespit.dgtParcaKodu),
+      renderIconWithText('circle', tespit.durum, getColorForStatus(tespit.durum)),
+      renderIconWithText('pause', `${tespit.beklemedeAdet} Adet`, '#f39c12'),
+      renderIconWithText('file-text', tespit.aciklama),
+      renderIconWithText('calendar', tespit.tarih),
+      renderIconWithText('list', tespit.aciklamaListesi.join(', ')),
+    ])
+  );
+
   return (
-    <ScrollView style={styles.container} horizontal={true}>
+    <ScrollView style={styles.container}>
       <View>
-        <ScrollView>
+        <ScrollView horizontal={true}>
           <Table borderStyle={styles.border}>
             <Row
               data={tableHead1}
@@ -60,6 +117,58 @@ export default function App() {
               widthArr={widthArr}
             />
             {tableData1.map((rowData, index) => (
+              <TableWrapper key={index} style={{ flexDirection: 'row' }}>
+                {rowData.map((cellData, cellIndex) => (
+                  <Cell
+                    key={cellIndex}
+                    data={cellData}
+                    textStyle={styles.text}
+                    style={{ width: widthArr[cellIndex] }}
+                  />
+                ))}
+              </TableWrapper>
+            ))}
+          </Table>
+        </ScrollView>
+
+        <View style={styles.spacer} />
+
+
+        <ScrollView horizontal={true}>
+          <Table borderStyle={styles.border}>
+            <Row
+              data={tableHead2}
+              style={styles.head}
+              textStyle={styles.text}
+              widthArr={widthArr}
+            />
+            {tableData2.map((rowData, index) => (
+              <TableWrapper key={index} style={{ flexDirection: 'row' }}>
+                {rowData.map((cellData, cellIndex) => (
+                  <Cell
+                    key={cellIndex}
+                    data={cellData}
+                    textStyle={styles.text}
+                    style={{ width: widthArr[cellIndex] }}
+                  />
+                ))}
+              </TableWrapper>
+            ))}
+          </Table>
+        </ScrollView>
+
+        <View style={styles.spacer} />
+
+
+        <ScrollView horizontal={true}>
+          <Table borderStyle={styles.border}>
+            <Row
+              data={tableHead3}
+              style={styles.head}
+              textStyle={styles.text}
+              widthArr={widthArr}
+            />
+            {tableData3.map((rowData, index) => (
               <TableWrapper key={index} style={{ flexDirection: 'row' }}>
                 {rowData.map((cellData, cellIndex) => (
                   <Cell
@@ -113,5 +222,8 @@ const styles = StyleSheet.create({
   iconText: {
     fontSize: 10,
     color: '#333',
+  },
+  spacer: {
+    marginVertical: 20
   }
 });
